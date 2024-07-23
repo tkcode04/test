@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <title>rinda reader</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="tttt.css">
+</head>
+<body>
+    <form id="searchForm" onsubmit="return false;">
+        <label for="jan">JANコードを入力してください</label><br>
+        <input type="text" id="jan" name="janCode" required><br><br>
+        <input type="submit" value="全サイトで検索" onclick="submitFormAll()">
+        <input type="submit" value="買取商店" onclick="submitFormshoten()">
+        <input type="submit" value="海峡通信" onclick="submitFormkaikyo()">
+        <input type="submit" value="買取１丁目" onclick="submitFormchome()">
+        <input type="submit" value="買取wiki" onclick="submitFormwiki()">
+    </form>
+    
+    <script>
+        function submitFormshoten() {
+            var janCode = document.getElementById('jan').value;
+            var url = "https://www.kaitorishouten-co.jp/category/2/70?name=" + encodeURIComponent(janCode);
+            window.open(url, "_blank");
+        }
+
+        function submitFormkaikyo() {
+            var janCode = document.getElementById('jan').value;
+            var url = "https://www.mobile-ichiban.com/Prod/0?Search=" + encodeURIComponent(janCode);
+            window.open(url, "_blank");
+        }
+
+        function submitFormchome() {
+            var janCode = document.getElementById('jan').value;
+            var url = "https://www.1-chome.com/elec/search/" + encodeURIComponent(janCode);
+            window.open(url, "_blank");
+        }
+
+        function submitFormwiki() {
+            var janCode = document.getElementById('jan').value;
+            var url = "https://kaitori.wiki/search?&keyword=" + encodeURIComponent(janCode);
+            window.open(url, "_blank");
+        }
+
+        function submitFormAll() {
+            var janCode = document.getElementById('jan').value;
+            submitFormshoten();
+            submitFormkaikyo();
+            submitFormchome();
+            submitFormwiki();
+        }
+    </script>
+</body>
+</html>
